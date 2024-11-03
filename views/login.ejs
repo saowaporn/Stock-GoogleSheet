@@ -1,0 +1,72 @@
+<html style="font-size: 16px;" lang="en" class="u-responsive-xs">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Product Line">
+    <meta name="description" content="">
+    <title>Home</title>
+    <link rel="stylesheet" href="./css/webpage-site2.css" media="screen">
+    <link rel="stylesheet" href="./css/webpage-site.css" media="screen">
+    <link rel="stylesheet" href="./css/login.css" media="screen">
+    <script class="u-script" type="text/javascript" src="./js/jquery-3.5.1.min.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="./js/website.js" defer=""></script>
+    <!--<meta name="generator" content="Nicepage 5.15.1, nicepage.com">-->
+    <!-- ฟอนต์ตัวอักษร-->
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Home">
+    <meta property="og:type" content="website">
+</head>
+
+<body class="u-body u-xl-mode" data-lang="en" data-new-gr-c-s-check-loaded="14.1043.0" data-gr-ext-installed="">
+    <section class="u-clearfix u-image u-section-1" id="sec-5b40" data-image-width="1080" data-image-height="810">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-group u-radius-50 u-shape-round u-white u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h3 class="u-text u-text-default u-text-1" style="color: rgb(204, 43, 43) ">Login</h3>
+            <div class="u-form u-login-control u-form-1">
+              <form method="post" action="/login" class="u-clearfix u-form-custom-backend u-form-spacing-7 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 0px;">
+                <% if (locals.result_login) { %>
+                  <div id="result_login" class = "u-border-active-palette-2-base u-border-hover-palette-2-base u-border-none u-login-control u-login-create-account u-text-palette-2-base u-text-default" style="color: rgb(238, 21, 21) ">
+                      <%= result_login %>
+                  </div>
+                  <% } %>
+                      <br>
+                <div class="u-form-group u-form-name u-label-top">
+                  <label for="username-a30d" class="u-label u-text-grey-30 u-label-1">Username *</label>
+                  <input type="text" placeholder="Enter your Username" id="username-a30d" name="Username_Login" class="u-border-10 u-border-grey-10 u-grey-10 u-input u-input-rectangle u-radius-50 u-input-1" required="">
+                </div>
+                <div class="u-form-group u-form-password u-label-top">
+                  <label for="password-a30d" class="u-label u-text-grey-30 u-label-2">Password *</label>
+                  <input type="password" placeholder="Enter your Password" id="password-a30d" name="password_login" class="u-border-10 u-border-grey-10 u-grey-10 u-input u-input-rectangle u-radius-50 u-input-2" required="">
+                </div><hr>
+                <!--<div class="u-form-checkbox u-form-group u-label-top">
+                  <input type="checkbox" id="checkbox-a30d" name="remember" value="On" class="u-field-input">
+                  <label for="checkbox-a30d" class="u-field-label u-text-grey-30" style="font-size: 1.125rem; letter-spacing: 0px; text-transform: none">Remember me</label>
+                </div>-->
+                <div class="u-align-center u-form-group u-form-submit u-label-top">
+                  <input type="submit" value="submit" class="u-form-control-hidden">
+                  <a class="u-active-palette-1-base u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-1-base u-palette-2-base u-radius-50 u-btn-1">Login</a>
+                </div>
+                <input type="hidden" value="" name="recaptchaResponse">
+              </form>
+            </div>
+            <a href="signin" class="u-border-active-palette-2-base u-border-hover-palette-2-base u-border-none u-btn u-button-style u-login-control u-login-create-account u-none u-text-palette-2-base u-btn-2">Don't have an account?</a>
+            <a href="resetpassword" class="u-border-active-palette-2-base u-border-hover-palette-2-base u-border-none u-btn u-button-style u-login-control u-login-create-account u-none u-text-palette-2-base u-btn-3">Forgot password?</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" target="_blank">
+        <span>2024</span>
+      </a>
+    </section>
+  
+<style>.u-disable-duration * {transition-duration: 0s !important;}</style>
+</body>
+<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
+</html>

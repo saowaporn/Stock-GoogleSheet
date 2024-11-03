@@ -1,0 +1,115 @@
+<html style="font-size: 16px;" lang="en" class="u-responsive-xs">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="keywords" content="Product Line">
+  <meta name="description" content="">
+  <title>Department Suction Machine</title>
+  <link rel="stylesheet" href="./css/webpage-site2.css" media="screen">
+  <link rel="stylesheet" href="./css/webpage-site.css" media="screen">
+  <link rel="stylesheet" href="./css/departure.css" media="screen">
+  <link rel="stylesheet" href="./css/quick support.css" media="screen">
+  <script class="u-script" type="text/javascript" src="./js/jquery-3.5.1.min.js" defer=""></script>
+  <script class="u-script" type="text/javascript" src="./js/website.js" defer=""></script>
+  <!--<meta name="generator" content="Nicepage 5.15.1, nicepage.com">-->
+  <!-- ฟอนต์ตัวอักษร-->
+  <link id="u-theme-google-font" rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+
+  <meta name="theme-color" content="#478ac9">
+  <meta property="og:title" content="Home">
+  <meta property="og:type" content="website">
+</head>
+
+<body class="u-body u-xl-mode" data-lang="en">
+
+  <!-- ส่วนของ header-->
+  <script src="js/header.js"></script>
+
+  <section class="skrollable u-align-center u-clearfix u-image u-section-1" id="sec-ad07" data-image-width="2000"
+    data-image-height="1333">
+    <div class="u-clearfix u-expanded-width u-gutter-0 u-layout-wrap u-layout-wrap-1">
+      <div class="u-layout">
+        <div class="u-layout-row">
+          <div
+            class="u-align-left u-container-style u-gradient u-layout-cell u-left-cell u-size-25 u-size-xs-60 u-layout-cell-1"
+            src="">
+            <div class="u-container-layout u-valign-middle u-container-layout-1" src="">
+              <img class="u-expanded-width u-image u-image-1" src="img/(2)suction 2.png" data-image-width="400"
+                data-image-height="400">
+            </div>
+          </div>
+          <div
+            class="u-container-style u-layout-cell u-palette-2-light-2 u-right-cell u-size-35 u-size-xs-60 u-layout-cell-2">
+            <div class="u-container-layout u-container-layout-2">
+              <h2 class="u-align-center u-text u-text-1" >DEPARTMENT <br> Suction Machine</h2>
+              <form method="post" action="/Deparment_Suction_Machine" class="u-form u-form-1">
+                <div class="u-clearfix u-form-spacing-18 u-form-vertical u-inner-form" name="form"
+                  style="padding: 12px;">
+                  <div class="u-form-group u-form-name u-form-group-6">
+                    <label for="name-dfcd" class="u-label u-label-3">Model</label>
+                    <select name="Model" class="u-input u-input-rectangle">
+                      <option value="SSS1"> SSS1 </option>
+                      <option value="SSS2"> SSS2 </option>
+                      <option value="SSS3"> SSS3 </option>
+                    </select>
+                  </div>
+                  <div class="u-form-group u-form-number u-form-number-layout-number u-form-group-4">
+                    <label for="number-dca3" class="u-label u-label-1">How many do you want?</label>
+                    <div class="u-input-row" data-value="0">
+                      <input type="number" name="Amount" value="0" min ="0" max="5" step="1">
+                    </div>
+                  </div>
+                  <div class="u-form-date u-form-group u-form-group-5" style="position: relative;">
+                    <label for="date-d5f6" class="u-label u-label-2">Required Date</label>
+                    <%
+                    let dt = new Date()
+                    let m = dt.getMonth() + 1
+                    //ถ้าเป็นเลขหลักเดียว ให้เติม 0 ข้างหน้า
+                    m = (m > 10) ? m : '0'+m
+                    let d = dt.getDate()
+                    d = (d > 10) ? d : '0'+d
+                    let Required_Date = `${dt.getFullYear()}-${m}-${d}`
+                    %>
+                      <input type="date" id="Required_date" name="Required_Date" value="<%= Required_Date %>"
+                        class="u-input u-input-rectangle" required>
+                  </div>
+                  <div class="u-form-group u-form-name u-form-group-6">
+                    <label for="name-dfcd" class="u-label u-label-3">Hospital</label>
+                    <input type="text" placeholder="Enter Hospital Name" id="hospital" name="Hospital"
+                      class="u-input u-input-rectangle" required="">
+                  </div>
+                  <div class="u-form-group u-form-name u-form-group-6">
+                    <label for="name-dfcd" class="u-label u-label-3">Operator</label>
+                    <input type="text" placeholder="Enter your Name" id="Operator" name="Operator"
+                      class="u-input u-input-rectangle" required="">
+                  </div>
+                  <div class="u-form-group u-form-name u-form-group-6">
+                    <label for="name-dfcd" class="u-label u-label-3">Note</label>
+                    <input type="text" placeholder="Enter your Note" id="Note" name="Note"
+                      class="u-input u-input-rectangle">
+                  </div>
+                 
+                    <div class="u-align-left u-form-group u-form-submit u-form-group-7">
+                      <input type="submit" value="submit" class="u-form-control-hidden">
+                      <a class="u-btn u-btn-submit u-button-style u-btn-1">Submit</a>
+                    </div>
+                    <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
+                    <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors
+                      then try again. </div>
+                    </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ส่วนของ section 2 Quick Support-->
+  <script src="js/quick-support.js"></script>
+</body>
+<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
+
+</html>

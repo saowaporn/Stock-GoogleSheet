@@ -1,0 +1,59 @@
+<html style="font-size: 16px;" lang="en" class="u-responsive-xs">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+      body {
+          margin: 20px;
+      }
+
+      table {
+          border-collapse: collapse;
+          border: solid 2px gray;
+      }
+
+      td,
+      th {
+          padding: 5px;
+      }
+
+      th {
+          background-color: #cde;
+      }
+  </style>
+  <script>
+      function deleteUser(id) {
+          if (confirm('ยืนยันการลบ')) {
+              location.href = '/delete/' + id
+          }
+      }
+  </script>
+</head>
+<body >
+
+      <h4>รายการข้อมูล</h4>
+          <table border ="1">
+          <tr><th>สถานะ</th><th>ชื่อสินค้า</th><th>จำนวน</th><th>วันที่ ยืม/คืน สินค้า</th><th>โรงพยาบาล</th><th>ผู้ดำเนินการ</th><th>หมายเหตุ</th></tr>
+          <% if (locals.get_data) { %>
+          <% for (key of get_data) {  
+            let dt=new Date(Date.parse(key.Required_Date)) 
+            let df=`${dt.getDate()}-${dt.getMonth() + 1}-${dt.getFullYear()}`
+          %>
+              <tr>
+                  <td><%= key.Status%></td>
+                  <td><%= key.Product_Name%></td>
+                  <td><%= key.Amount%></td>
+                  <td><%= df%></td>
+                  <td><%= key.Hospital %></td>
+                  <td><%= key.Operator %></td>
+                  <td><%= key.Note %></td>
+              </tr>
+          <% } %>
+        <% } %>
+      </table>
+</body>
+<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
+
+</html>

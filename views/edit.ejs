@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Signin</title>
+    <style>
+        html {
+            background-color: #c9f1ff;
+
+        }
+
+        legend {
+            text-align: center;
+        }
+
+        form {
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <form method="post" action="/edit/ <%= data.ID %>">
+            <% if (locals.result_Edit) { %>
+                <div id="result_Edit" class = "u-border-active-palette-2-base u-border-hover-palette-2-base u-border-none u-login-control u-login-create-account u-text-palette-2-base u-text-default" style="color: rgb(238, 21, 21) ">
+                    <%= result_Edit %>
+                </div>
+            <% } %>
+
+            <field>
+                <legend>
+                    <h3>Sign in</h3>
+                </legend>
+                <h4>First name : </h4>
+                <select name="title">
+                    <option value="นาย" value ="<%= data.Title %>" > นาย </option>
+                    <option value="นางสาว" value ="<%= data.Title %>" > นางสาว </option>
+                    <option value="นาง"  value ="<%= data.Title %>"> นาง </option>
+                    <input type="text" name="Firstname" value ="<%= data.FirstName %>" required>
+                </select>
+
+                <h4>Last name :
+                    <input type="text" name="Lastname" value ="<%= data.LastName %>"required>
+                </h4>
+
+                <h4>Gentle :
+                <input type="text" name="Gentle" value ="<%= data.Gentle %>">
+                </h4>
+
+                <h4>Phone Number :
+                    <input type="text" name="Phone" value ="<%= data.PhoneNumber %>">
+                </h4>
+
+                <h4>Email :
+                    <input type="text" name="Email" value ="<%= data.Email %>">
+                </h4>
+
+            </field>
+            <field>
+                <legend>
+                    <h3>Set password</h3>
+                </legend>
+                <h4>Username :
+                    <input type="text" id="Username" name="Username" placeholder="Username" required>
+                </h4>
+
+                <h4>Password :
+                    <input type="password" id="pswd1" name="Password" placeholder="Password" minlength="5" required>
+                </h4>
+
+                <h4>Confirm Password :
+                    <input type="password" id="pswd2" name="Comfirmpassword" placeholder="ComfirmPassword" required>
+                </h4>
+
+                <%
+                let dt = new Date()
+                let m = dt.getMonth() + 1
+                //ถ้าเป็นเลขหลักเดียว ให้เติม 0 ข้างหน้า
+                m = (m > 10) ? m : '0'+m
+                let d = dt.getDate()
+                d = (d > 10) ? d : '0'+d
+                let today = `${dt.getFullYear()}-${m}-${d}`
+                %>
+
+                <h4>Set Date :
+                    <input type="date" id="date" name="Date" value="<%= today %>" required>
+                </h4>
+
+                <button id="confirm">Confirm</button>
+            </field>
+        </form>
+        <br><a href="login"> <button onclick="alert('ต้องการยกเลิกการเปลี่ยนรหัสผ่านหรือไม่')"> cancel</button></a>
+    </div>
+
+
+
+    <script>
+        let bt = document.getElementById('confirm')
+        bt.onclick = function (event) {
+            let Username = document.getElementById('Username')
+            let pswd1 = document.getElementById('pswd1')
+            let pswd2 = document.getElementById('pswd2')
+
+
+            if (Username.value == '' || pswd1.value == '') {
+                alert('กรุณาใส่ทั้ง Username และ Password')
+            } else if (pswd1.value != pswd2.value) {
+                alert('ต้องใส่ Password ทั้ง 2 ช่องให้ตรงกัน')
+            } else {
+                alert('การลงทะเบียนเสร็จเรียบร้อย')
+            }
+        }
+    </script>
+
+</body>
