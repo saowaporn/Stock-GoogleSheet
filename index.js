@@ -25,15 +25,14 @@ var get_mysql_data = (sql, place_holder) => {
         Stock.connect(() => {  //รันคำสั่ง SQL
             Stock.query(sql, place_holder, (err, result) => {
 
-                if (err) {
+                if (result == null) {
+                    return reject({ message: "Result is Empty" });
+                }
+                else if (err) {
                     console.log(err);
                     return reject(err);
                 }
-
-                if (result == null) {
-                    return reject({ message: "Mysql Error" });
-                }
-
+                
                 resolve(result);  //ส่งผลลัพธืของคำสั่ง sql กลับไปให้ทำงานต่อ
             })
 
