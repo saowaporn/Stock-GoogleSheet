@@ -40,7 +40,7 @@ document.write(`    <header class="u-clearfix u-header u-header u-grey-80" id="s
             <ul class="u-nav u-unstyled u-nav-1">
                 <li class="u-nav-item"><a
                         class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base active"
-                        href="/department-return" style="padding: 10px 20px;">Home</a>
+                        href="/departure-return" style="padding: 10px 20px;">Home</a>
                 </li>
                 <li class="u-nav-item"><a
                         class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
@@ -54,7 +54,7 @@ document.write(`    <header class="u-clearfix u-header u-header u-grey-80" id="s
                 <div class="u-inner-container-layout u-sidenav-overflow">
                     <div class="u-menu-close"></div>
                     <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
-                        <li class="u-nav-item"><a class="u-button-style u-nav-link active" href="/department-return">Home</a>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link active" href="/departure-return">Home</a>
                         </li>
                         <li class="u-nav-item"><a class="u-button-style u-nav-link" href="/">Logout</a>
                         </li>

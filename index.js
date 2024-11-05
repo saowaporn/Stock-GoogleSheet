@@ -101,7 +101,7 @@ async function UpdateData_Googlesheet(sent_range, sent_values, Dimension) {
 async function Update_Warehouse_Stocklist_Googlesheet(request,response, Status, Product_Name) {
 
     var form = request.body
-    var Value_Department = {
+    var Value_Departure = {
         Check: null,
         Admin: null,
         Status: Status, // ใส่เป็น String
@@ -121,7 +121,7 @@ async function Update_Warehouse_Stocklist_Googlesheet(request,response, Status, 
     for (let i = 0; i < numRows; i++) {
         var getProduct = Object.values(getProduct_Sheet.data.values)
         var getData = getProduct[i]
-        var checkProduct = getData.includes(Value_Department.Model)
+        var checkProduct = getData.includes(Value_Departure.Model)
 
         if (checkProduct == true) {
             var getTotal = getData[3]
@@ -132,11 +132,11 @@ async function Update_Warehouse_Stocklist_Googlesheet(request,response, Status, 
     }
 
     //ตรวจสอบสถานะ
-    if (Status == "Department") {
-        var Remain = parseInt(getTotal) - parseInt(Value_Department.Amount)
+    if (Status == "Departure") {
+        var Remain = parseInt(getTotal) - parseInt(Value_Departure.Amount)
     }
     else if (Status == "Return") {
-        var Remain = parseInt(getTotal) + parseInt(Value_Department.Amount)
+        var Remain = parseInt(getTotal) + parseInt(Value_Departure.Amount)
     }
 
     //ตรวจสอบจำนวนสินค้าคงเหลือ
@@ -153,7 +153,7 @@ async function Update_Warehouse_Stocklist_Googlesheet(request,response, Status, 
         var result_Update = true
 
         // เพิ่มข้อมูล Stocklist ใน GoogleSheet
-        var sent_values = Object.values(Value_Department)
+        var sent_values = Object.values(Value_Departure)
         SentData_Googlesheet("Stock_List!A:J", sent_values)
 
         // อัพเดตข้อมูลยอดคงเหลือปัจจุบันใน Warehouse 
@@ -212,7 +212,7 @@ app.all('/login', async (request, response) => {
         }
 
         else if (check == 1) { // User & Pass ถูกต้อง
-            response.redirect('/department-return')
+            response.redirect('/departure-return')
             console.log("Suscess")
         }
         else { // User ถูก Pass ผิด
@@ -368,15 +368,15 @@ app.get('/delete/:check_ID', async (request, response) => {
 
 
 /************************************* สำหรับ จัดการข้อมูลการยืมสินค้า ************************************************* */
-app.all('/Deparment_Oxygen_Concentration', async (request, response) => {
+app.all('/Departure_Oxygen_Concentration', async (request, response) => {
 
     if (request.method == 'GET') {
-        response.render('Department/Deparment_Oxygen_Concentration')
+        response.render('Departure/Departure_Oxygen_Concentration')
     }
     else if (request.method == 'POST') {
 
         // เก็บข้อมูลจากหน้าเว็บ
-       var UpdateWarehouse = await Update_Warehouse_Stocklist_Googlesheet(request, response, "Department", "Oxygen Concentration")
+       var UpdateWarehouse = await Update_Warehouse_Stocklist_Googlesheet(request, response, "Departure", "Oxygen Concentration")
        console.log(UpdateWarehouse) 
     }
 })
@@ -393,15 +393,15 @@ app.all('/Return_Oxygen_Concentration', async (request, response) => {
     }
 })
 
-app.all('/Deparment_Suction_Machine', async (request, response) => {
+app.all('/Departure_Suction_Machine', async (request, response) => {
 
     if (request.method == 'GET') {
-        response.render('Department/Deparment_Suction_Machine')
+        response.render('Departure/Departure_Suction_Machine')
     }
     else if (request.method == 'POST') {
 
         // เก็บข้อมูลจากหน้าเว็บ
-       var UpdateWarehouse = await Update_Warehouse_Stocklist_Googlesheet(request, response, "Department", "Suction Machine")
+       var UpdateWarehouse = await Update_Warehouse_Stocklist_Googlesheet(request, response, "Departure", "Suction Machine")
        console.log(UpdateWarehouse) 
     }
 })
@@ -418,15 +418,15 @@ app.all('/Return_Suction_Machine', async (request, response) => {
     }
 })
 
-app.all('/Deparment_Blood_Pressure', async (request, response) => {
+app.all('/Departure_Blood_Pressure', async (request, response) => {
 
     if (request.method == 'GET') {
-        response.render('Department/Deparment_Blood_Pressure')
+        response.render('Departure/Departure_Blood_Pressure')
     }
     else if (request.method == 'POST') {
 
         // เก็บข้อมูลจากหน้าเว็บ
-       var UpdateWarehouse = await Update_Warehouse_Stocklist_Googlesheet(request, response, "Department", "Blood Pressure Monitor")
+       var UpdateWarehouse = await Update_Warehouse_Stocklist_Googlesheet(request, response, "Departure", "Blood Pressure Monitor")
        console.log(UpdateWarehouse) 
     }
 })
@@ -443,15 +443,15 @@ app.all('/Return_Blood_Pressure', async (request, response) => {
     }
 })
 
-app.all('/Deparment_Surgical_Light', async (request, response) => {
+app.all('/Departure_Surgical_Light', async (request, response) => {
 
     if (request.method == 'GET') {
-        response.render('Department/Deparment_Surgical_Light')
+        response.render('Departure/Departure_Surgical_Light')
     }
     else if (request.method == 'POST') {
 
         // เก็บข้อมูลจากหน้าเว็บ
-       var UpdateWarehouse = await Update_Warehouse_Stocklist_Googlesheet(request, response, "Department", "Surgical Light")
+       var UpdateWarehouse = await Update_Warehouse_Stocklist_Googlesheet(request, response, "Departure", "Surgical Light")
        console.log(UpdateWarehouse) 
     }
 })
@@ -468,15 +468,15 @@ app.all('/Return_Surgical_Light', async (request, response) => {
     }
 })
 
-app.all('/Deparment_Surgery_Unit', async (request, response) => {
+app.all('/Departure_Surgery_Unit', async (request, response) => {
 
     if (request.method == 'GET') {
-        response.render('Department/Deparment_Surgery_Unit')
+        response.render('Departure/Departure_Surgery_Unit')
     }
     else if (request.method == 'POST') {
 
         // เก็บข้อมูลจากหน้าเว็บ
-       var UpdateWarehouse = await Update_Warehouse_Stocklist_Googlesheet(request, response, "Department", "Surgery Unit")
+       var UpdateWarehouse = await Update_Warehouse_Stocklist_Googlesheet(request, response, "Departure", "Surgery Unit")
        console.log(UpdateWarehouse) 
     }
 })
@@ -493,15 +493,15 @@ app.all('/Return_Surgery_Unit', async (request, response) => {
     }
 })
 
-app.all('/Deparment_Infusion_Pump', async (request, response) => {
+app.all('/Departure_Infusion_Pump', async (request, response) => {
 
     if (request.method == 'GET') {
-        response.render('Department/Deparment_Infusion_Pump')
+        response.render('Departure/Departure_Infusion_Pump')
     }
     else if (request.method == 'POST') {
 
         // เก็บข้อมูลจากหน้าเว็บ
-       var UpdateWarehouse = await Update_Warehouse_Stocklist_Googlesheet(request, response, "Department", "Infusion Pump")
+       var UpdateWarehouse = await Update_Warehouse_Stocklist_Googlesheet(request, response, "Departure", "Infusion Pump")
        console.log(UpdateWarehouse) 
     }
 })
@@ -518,15 +518,15 @@ app.all('/Return_Infusion_Pump', async (request, response) => {
     }
 })
 
-app.all('/Deparment_Patient_Monitor', async (request, response) => {
+app.all('/Departure_Patient_Monitor', async (request, response) => {
 
     if (request.method == 'GET') {
-        response.render('Department/Deparment_Patient_Monitor')
+        response.render('Departure/Departure_Patient_Monitor')
     }
     else if (request.method == 'POST') {
 
         // เก็บข้อมูลจากหน้าเว็บ
-       var UpdateWarehouse = await Update_Warehouse_Stocklist_Googlesheet(request, response, "Department", "Patient Monitor")
+       var UpdateWarehouse = await Update_Warehouse_Stocklist_Googlesheet(request, response, "Departure", "Patient Monitor")
        console.log(UpdateWarehouse) 
     }
 })
@@ -543,15 +543,15 @@ app.all('/Return_Patient_Monitor', async (request, response) => {
     }
 })
 
-app.all('/Deparment_Vascular_Doppler', async (request, response) => {
+app.all('/Departure_Vascular_Doppler', async (request, response) => {
 
     if (request.method == 'GET') {
-        response.render('Department/Deparment_Vascular_Doppler')
+        response.render('Departure/Departure_Vascular_Doppler')
     }
     else if (request.method == 'POST') {
 
         // เก็บข้อมูลจากหน้าเว็บ
-       var UpdateWarehouse = await Update_Warehouse_Stocklist_Googlesheet(request, response, "Department", "Vascular Doppler")
+       var UpdateWarehouse = await Update_Warehouse_Stocklist_Googlesheet(request, response, "Departure", "Vascular Doppler")
        console.log(UpdateWarehouse) 
     }
 })
@@ -569,15 +569,15 @@ app.all('/Return_Vascular_Doppler', async (request, response) => {
 })
 
 
-app.all('/Deparment_Laryngoscope', async (request, response) => {
+app.all('/Departure_Laryngoscope', async (request, response) => {
 
     if (request.method == 'GET') {
-        response.render('Department/Deparment_Laryngoscope')
+        response.render('Departure/Departure_Laryngoscope')
     }
     else if (request.method == 'POST') {
 
         // เก็บข้อมูลจากหน้าเว็บ
-       var UpdateWarehouse = await Update_Warehouse_Stocklist_Googlesheet(request, response, "Department", "Laryngoscope")
+       var UpdateWarehouse = await Update_Warehouse_Stocklist_Googlesheet(request, response, "Departure", "Laryngoscope")
        console.log(UpdateWarehouse) 
     }
 })
@@ -606,13 +606,13 @@ app.all('/error', function (request, response) {
 })
 
 
-app.all('/department-return', function (request, response) {
-    response.render('department-return')
+app.all('/Departure-return', function (request, response) {
+    response.render('departure-return')
 })
 
 
-app.all('/Product_line_department', async function (request, response) {
-    response.render('Product_line_department')
+app.all('/Product_line_departure', async function (request, response) {
+    response.render('Product_line_departure')
 })
 
 app.all('/Product_line_return', async function (request, response) {
